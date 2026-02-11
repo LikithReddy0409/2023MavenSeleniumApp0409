@@ -1,0 +1,10 @@
+mvn archetype:generate -DgroupId=com.example -DartifactId=2023MavenSeleniumApp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+cd 2023MavenSeleniumApp/
+tree
+gedit pom.xml
+gedit src/main/java/com/example/App.java
+mvn clean install
+java -jar target/2023MavenSeleniumApp-1.0-SNAPSHOT.jar
+mvn exec:java -Dexec.mainClass="com.example.App"
+
+
