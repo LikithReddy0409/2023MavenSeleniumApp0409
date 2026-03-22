@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/LikithReddy0409/Mavenlistapp.git'
+                git branch: 'main', url: 'https://github.com/LikithReddy0409/2023MavenSeleniumApp0409.git'
             }
         }
 
