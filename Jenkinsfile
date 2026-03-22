@@ -1,10 +1,12 @@
 pipeline {
-    agent any  // Use any available agent
+    agent any
 
     tools {
-        maven 'Maven'  // Ensure this matches the name configured in Jenkins
+        maven 'Maven'
     }
+
     stages {
+
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/LikithReddy0409/2023MavenSeleniumApp0409.git'
@@ -13,35 +15,32 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean package'  // Run Maven build
+                sh 'mvn clean package'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'  // Run unit tests
+                sh 'mvn test'
             }
         }
 
-        
-        
-       
         stage('Run Application') {
             steps {
-                // Start the JAR application
                 sh 'java -jar target/2023MavenSeleniumApp-1.0-SNAPSHOT.jar'
             }
         }
-
-        
     }
 
     post {
+        always {
+            echo 'Pipeline completed'
+        }
         success {
-            echo 'Build and deployment successful!'
+            echo 'Build SUCCESS ✅'
         }
         failure {
-            echo 'Build failed!'
+            echo 'Build FAILED ❌'
         }
     }
 }
