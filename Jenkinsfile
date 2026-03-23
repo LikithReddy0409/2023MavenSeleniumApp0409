@@ -27,7 +27,10 @@ pipeline {
 
         stage('Run Application') {
             steps {
-                sh 'java -jar target/2023MavenSeleniumApp-1.0-SNAPSHOT.jar'
+                sh '''
+                export DISPLAY=:99
+                java -jar target/2023MavenSeleniumApp-1.0-SNAPSHOT.jar
+                '''
             }
         }
     }
