@@ -33,9 +33,6 @@ pipeline {
     }
 
     post {
-        always {
-            echo 'Pipeline completed'
-        }
         success {
             echo 'Build SUCCESS ✅'
         }
